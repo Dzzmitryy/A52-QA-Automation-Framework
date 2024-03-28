@@ -4,7 +4,9 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class hw19 extends BaseTest {
+import static org.example.WaitUtils.waitUntilVisibilityOfElementLocatedBy;
+
+public class hw20 extends BaseTest {
 
     @Test
 
@@ -15,10 +17,10 @@ public class hw19 extends BaseTest {
         WebElement Playlist =  getDriver().findElement(By.cssSelector("[class='playlist playlist']"));
         WebElement Delete = getDriver().findElement(By.cssSelector("[data-testid='playlist-context-menu-delete-86853']"));
         Delete.click();
-
-            Thread.sleep(3000);
+        waitUntilVisibilityOfElementLocatedBy(getDriver(), By.cssSelector("[data-testid='playlist-context-menu-delete-86853']"));
 
         Assert.assertTrue(Delete.isDisplayed());
     }
 
 }
+
